@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+{% if paginate %}
+  <div class="clearfix"></div>
+  <nav aria-label="">
+    <ul class="pager">
+      {% if traffics.has_previous %}
+          <li><a href="?page={{ traffics.previous_page_number }}">Précédent</a></li>
+      {% endif %}
+      {% if traffics.has_next %}
+          <li><a href="?page={{ traffics.next_page_number }}">Suivant</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}
+
+{% if traffics|length_is:"0" %}
+    <div class="text-center">
+      Palsambleu ! Nous n'avons trouvé aucun résultat à cette requête. Même pas de quoi se ronger la chique !
+      Partez de nouveau à l'abordage !
+    </div>
+
+{% else %}
+    {% for traffic in traffics %}
+        <div class="col-sm-4 text-center">
+            <p> {{ traffic.DATA_EXTRACT_DATE }} --
+                {{ traffic.TERMINAL }} --
+                {{ traffic.ARRIVAL_DEPARTURE }} --
+                {{ traffic.REPORT_PERIOD }} --
+                {{ traffic.DOMESTIC_INTERNATIONAL }} --
+                {{ traffic.PASSENGER_COUNT }}
+            </p>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}<div class="clearfix"></div>{% endif %}
+          <div class="clearfix"></div>
+    {% endfor %}
+
+
+{% endif %}
+  <nav aria-label="...">
+    <ul class="pager">
+      {% if traffics.has_previous %}
+          <li><a href="?page={{ traffics.previous_page_number }}">Précédent</a></li>
+      {% endif %}
+      {% if traffics.has_next %}
+          <li><a href="?page={{ traffics.next_page_number }}">Suivant</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</html>
