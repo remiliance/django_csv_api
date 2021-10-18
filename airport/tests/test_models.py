@@ -39,4 +39,4 @@ class TestAjoutTraffic(TestCase):
 
     def test_delete_everything(self):
         Traffic.objects.all().delete()
-        self.assertEqual(Traffic.objects.all(),2)
+        self.assertEqual(Traffic.objects.all(),0)

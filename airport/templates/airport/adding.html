@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<form class="form-inline" action="" method="post">
+    {% csrf_token %}
+    <div class="form-group {% if form.TERMINAL.errors %}has-warning has-feedback{% endif %}">
+      <label for="{{ form.TERMINAL.id_for_label }}" class="control-label">TERMINAL</label>
+      <!-- <input type="text" name="name" value="" id="name"> -->
+      {{ form.TERMINAL }}
+    </div>
+      <div class="form-group {% if form.DATA_EXTRACT_DATE.errors %}has-warning has-feedback{% endif %}">
+      <label for="{{ form.DATA_EXTRACT_DATE.id_for_label }}" class="control-label">DATA_EXTRACT_DATE</label>
+      <!-- <input type="text" name="name" value="" id="name"> -->
+      {{ form.DATA_EXTRACT_DATE }}
+    </div>
+    <div class="form-group {% if form.REPORT_PERIOD.errors %}has-warning has-feedback{% endif %}">
+      <label for="{{ form.REPORT_PERIOD.id_for_label }}" class="control-label">REPORT_PERIOD</label>
+      <!-- <input type="text" name="name" value="" id="name"> -->
+      {{ form.REPORT_PERIOD }}
+    </div>
+     <div class="form-group {% if form.ARRIVAL_DEPARTURE.errors %}has-warning has-feedback{% endif %}">
+      <label for="{{ form.ARRIVAL_DEPARTURE.id_for_label }}" class="control-label">ARRIVAL_DEPARTURE</label>
+      <!-- <input type="text" name="name" value="" id="name"> -->
+      {{ form.ARRIVAL_DEPARTURE }}
+    </div>
+    <div class="form-group {% if form.DOMESTIC_INTERNATIONAL.errors %}has-warning has-feedback{% endif %}">
+      <label for="{{ form.DOMESTIC_INTERNATIONAL.id_for_label }}" class="control-label">DOMESTIC_INTERNATIONAL</label>
+      <!-- <input type="text" name="name" value="" id="name"> -->
+      {{ form.DOMESTIC_INTERNATIONAL }}
+    </div>
+      </div>
+         <div class="form-group {% if form.PASSENGER_COUNT.errors %}has-warning has-feedback{% endif %}">
+      <label for="{{ form.PASSENGER_COUNT.id_for_label }}" class="control-label">PASSENGER_COUNT</label>
+      <!-- <input type="text" name="name" value="" id="name"> -->
+      {{ form.PASSENGER_COUNT }}
+         </div>
+    <button type="submit" class="btn btn-success">Ajouter</button>
+  </form>
+</html>
