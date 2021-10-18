@@ -1,5 +1,5 @@
 from sqlite3 import IntegrityError
-
+from django.template import loader
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db import transaction
 from django.http import HttpResponse
@@ -15,8 +15,11 @@ def home(request):
 
 
 def index(request):
-    message = "Salut tout le monde !"
-    return HttpResponse(message)
+    traffics = Traffic.objects.filter()
+    context = {
+        'traffics': traffics
+    }
+    return render(request, 'airport/index.html', context)
 
 
 def listing(request):
