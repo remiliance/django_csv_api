@@ -27,6 +27,7 @@ function addTags() {
   clearTags();
   tags.slice().reverse().forEach(tag => {
     tagContainer.prepend(createTag(tag));
+
   });
 }
 
@@ -49,5 +50,9 @@ document.addEventListener('click', (e) => {
     addTags();
   }
 })
+
+const contents = document.getElementsByClassName('content');
+const firstContent = contents[0];
+paragraph.innerText = `${firstContent}toto `
 
 input.focus();

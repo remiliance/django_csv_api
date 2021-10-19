@@ -19,8 +19,13 @@
           <p id="info"></p>
 </div></h1>
 
+<div>
+    <div class="content">Contenu 1</div>
+    <div class="content">Contenu 2</div>
+    <div class="content">Contenu 3</div>
+</div>
 
-<h1><a href="Press enter after you typed."></a></h1>
+<h1><a href="Press enter after you typed.}"></a></h1>
 <div class="container">
   Press enter after you typed.
   <br />
@@ -49,8 +54,9 @@
 </div>
 
 
-<script src="{% static 'js/index.js' %}">
-    var title = "{{ title  }}";
+<script src="{% static 'js/index.js' %}"></script>
+<script type=text/javascript">
+    let title = "{{title}}";
 </script>
 <script src="{% static 'js/index_tags.js' %}"></script>
 </body>
