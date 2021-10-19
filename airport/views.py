@@ -16,8 +16,10 @@ def home(request):
 
 def index(request):
     traffics = Traffic.objects.filter()
+    title = "Passage d'un paramètre à HTML "
     context = {
-        'traffics': traffics
+        'traffics': traffics,
+        'title': title
     }
     return render(request, 'airport/index.html', context)
 
