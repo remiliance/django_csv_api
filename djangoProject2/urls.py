@@ -21,7 +21,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 from airport import views
-from airport.models import Traffic
+
+
 
 # pour charger les données depuis le data.sql dans la postgres
 """
@@ -46,12 +47,12 @@ try:
 except FileNotFoundError as e:
     print("Pas de fichier :", e)
 
-"""
 
+"""
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),
-    path('airport/', include('airport.urls')),
+    path('airport/', include('airport.urls', namespace='airport')),
 ]
 
 if settings.DEBUG:

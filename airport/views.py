@@ -5,8 +5,32 @@ from django.db import transaction
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from airport.forms import TrafficForm
-from airport.models import Traffic
+from .forms import TrafficForm
+from django.views import generic
+from django.shortcuts import get_object_or_404
+
+from .models import Traffic
+
+class TrafficListView(generic.ListView):
+    model = Traffic
+
+    def get_queryset(self):
+        return Traffic.objects.filter(TERMINAL='Imperial Terminal')[:10] # Get 5 records containing the Terminal 1
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get the context
+        context = super(TrafficListView, self).get_context_data(**kwargs)
+        # Create any data and add it to the context
+        context['some_data'] = 'This is just some data'
+        return context
+
+
+class TrafficDetailView(generic.DetailView):
+    model = Traffic
+
+    def traffic_detail_view(request, primary_key):
+        traffic = get_object_or_404(Traffic, pk=primary_key)
+        return render(request, 'airport/traffic_detail.html', context={'traffic': Traffic})
 
 
 def home(request):
